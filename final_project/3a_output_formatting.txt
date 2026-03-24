@@ -8,6 +8,8 @@ def emotion_detector(text_to_analyse):
     response = requests.post(url, json=myobj, headers=headers)
     formatted_response = json.loads(response.text)
 
+    #I am confused for there is no such thing as 'emotion scores' in the json
+
     # Extract emotion scores from the response
     emotion_scores = formatted_response.get('documentSentiment', {}).get('emotionScores', {})
     anger_score = emotion_scores.get('anger', 0)
