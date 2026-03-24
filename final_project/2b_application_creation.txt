@@ -1,0 +1,7 @@
+theia@theiadocker-projetominst:/home/project/final_project/final_project$ python3.11
+Python 3.11.14 (main, Oct 10 2025, 08:54:03) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from emotion_detection import emotion_detector
+>>> emotion_detector("I love this new technology")
+'{"documentSentiment":{"score":0.996954, "label":"SENT_POSITIVE", "mixed":false, "sentimentMentions":[{"span":{"begin":0, "end":26, "text":"I love this new technology"}, "sentimentprob":{"positive":0.9941229, "neutral":0.0028645627, "negative":0.0030124863}}]}, "targetedSentiments":{"targetedSentiments":{}, "producerId":{"name":"Aggregated Sentiment Workflow", "version":"0.0.1"}}, "producerId":{"name":"Aggregated Sentiment Workflow", "version":"0.0.1"}}'
+>>>
