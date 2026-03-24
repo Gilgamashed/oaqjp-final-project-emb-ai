@@ -6,7 +6,7 @@ def emotion_detector(text_to_analyse):
     headers = {"grpc-metadata-mm-model-id": "sentiment_aggregated-bert-workflow_lang_multi_stock"}
     myobj = { "raw_document": { "text": text_to_analyse } }
     response = requests.post(url, json=myobj, headers=headers)
-    formatted_response = json.loads(response.text)
+    formatted_response = json.loads(response.text) #I am confused for there is no such thing as 'emotion scores' in the json
 
     # Extract emotion scores from the response
     emotion_scores = formatted_response.get('documentSentiment', {}).get('emotionScores', {})
@@ -18,20 +18,20 @@ def emotion_detector(text_to_analyse):
 
         # Determine the dominant emotion
     emotions = {
+        'joy': joy_score,
         'anger': anger_score,
         'disgust': disgust_score,
         'fear': fear_score,
-        'joy': joy_score,
         'sadness': sadness_score
     }
     dominant_emotion = max(emotions, key=emotions.get)
 
     # Prepare the response with emotion scores and the dominant emotion
     response_data = {
+        'joy': joy_score,
         'anger': anger_score,
         'disgust': disgust_score,
         'fear': fear_score,
-        'joy': joy_score,
         'sadness': sadness_score,
         'dominant_emotion': dominant_emotion
     }
